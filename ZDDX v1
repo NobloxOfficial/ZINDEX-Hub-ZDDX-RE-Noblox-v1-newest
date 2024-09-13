@@ -1,0 +1,254 @@
+-- Function to create the notifier GUI
+local function createNotifier()
+    -- Create ScreenGui
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "Notifier"
+    screenGui.Parent = game.CoreGui
+ 
+    -- Create Frame
+    local frame = Instance.new("Frame")
+    frame.Size = UDim2.new(0, 250, 0, 75)  -- Smaller size for the frame
+    frame.Position = UDim2.new(1, -260, 1, -85)  -- Position in the bottom right corner
+    frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Black background
+    frame.BorderSizePixel = 2
+    frame.BorderColor3 = Color3.fromRGB(0, 0, 0) -- Black border
+    frame.Parent = screenGui
+ 
+    -- Add UICorner to Frame
+    local frameCorner = Instance.new("UICorner")
+    frameCorner.CornerRadius = UDim.new(0, 5)
+    frameCorner.Parent = frame
+ 
+    -- Add UIGradient to Frame
+    local frameGradient = Instance.new("UIGradient")
+    frameGradient.Color = ColorSequence.new{
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), -- Black
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))  -- Black
+    }
+    frameGradient.Parent = frame
+ 
+    -- Create Label
+    local label = Instance.new("TextLabel")
+    label.Size = UDim2.new(1, -40, 0, 50)
+    label.Position = UDim2.new(0, 20, 0, 20)
+    label.BackgroundTransparency = 1
+    label.Text = "RE Script Hub Loaded Successfully"
+    label.TextColor3 = Color3.fromRGB(0, 255, 0) -- Green text
+    label.Font = Enum.Font.GothamBold
+    label.TextSize = 18
+    label.TextWrapped = true
+    label.Parent = frame
+ 
+    -- Automatically close after 5 seconds
+    delay(5, function()
+        screenGui:Destroy()
+    end)
+end
+ 
+-- Call the function to create the notifier
+createNotifier()
+ 
+print("RE Script Hub Loaded Successfully")
+ 
+-- Create ScreenGui for REHub
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "REHub"
+screenGui.Parent = game.CoreGui
+ 
+-- Create Frame for REHub
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 700, 0, 500)  -- Increased width from 600 to 700
+frame.Position = UDim2.new(0.5, -350, 0.5, -250)  -- Adjusted position for new width
+frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Black background
+frame.BorderSizePixel = 2
+frame.BorderColor3 = Color3.fromRGB(0, 0, 0) -- Black border
+frame.Active = true
+frame.Draggable = true
+frame.Parent = screenGui
+ 
+-- Add UICorner to Frame
+local frameCorner = Instance.new("UICorner")
+frameCorner.CornerRadius = UDim.new(0, 15)
+frameCorner.Parent = frame
+ 
+-- Add UIGradient to Frame
+local frameGradient = Instance.new("UIGradient")
+frameGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), -- Black
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))  -- Black
+}
+frameGradient.Parent = frame
+ 
+-- Create Scrolling Frame
+local scrollingFrame = Instance.new("ScrollingFrame")
+scrollingFrame.Size = UDim2.new(1, 0, 1, -60)
+scrollingFrame.Position = UDim2.new(0, 0, 0, 60)
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 600) -- Adjust this value based on the number of buttons
+scrollingFrame.ScrollBarThickness = 10
+scrollingFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Black background
+scrollingFrame.BorderSizePixel = 2
+scrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0) -- Black border
+scrollingFrame.Parent = frame
+ 
+-- Add UICorner to Scrolling Frame
+local scrollingFrameCorner = Instance.new("UICorner")
+scrollingFrameCorner.CornerRadius = UDim.new(0, 10)
+scrollingFrameCorner.Parent = scrollingFrame
+ 
+-- Create Label
+local label = Instance.new("TextLabel")
+label.Size = UDim2.new(1, 0, 0, 60)
+label.Position = UDim2.new(0, 0, 0, 0)
+label.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Black background
+label.BorderSizePixel = 2
+label.BorderColor3 = Color3.fromRGB(0, 0, 0) -- Black border
+label.Text = "Z I N D E X  GUI   v2"
+label.TextColor3 = Color3.fromRGB(0, 255, 0) -- Green text
+label.Font = Enum.Font.GothamBold
+label.TextSize = 28
+label.Parent = frame
+ 
+-- Add UICorner to Label
+local labelCorner = Instance.new("UICorner")
+labelCorner.CornerRadius = UDim.new(0, 10)
+labelCorner.Parent = label
+ 
+-- Function to create buttons
+local function createButton(name, position, script)
+    local button = Instance.new("TextButton")
+    button.Size = UDim2.new(1, -20, 0, 50)
+    button.Position = UDim2.new(0, 10, 0, position)
+    button.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Black background
+    button.BorderSizePixel = 2
+    button.BorderColor3 = Color3.fromRGB(0, 0, 0) -- Black border
+    button.Text = name
+    button.TextColor3 = Color3.fromRGB(0, 255, 0) -- Green text
+    button.Font = Enum.Font.Gotham
+    button.TextSize = 22
+    button.MouseButton1Click:Connect(function()
+        loadstring(game:HttpGet(script))()
+    end)
+    button.Parent = scrollingFrame
+ 
+    -- Add UICorner to Button
+    local buttonCorner = Instance.new("UICorner")
+    buttonCorner.CornerRadius = UDim.new(0, 10)
+    buttonCorner.Parent = button
+end
+ 
+-- Create Buttons
+createButton("Arsenal", 10, "https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal")
+createButton("Doors Floor 1 and 2 V1", 70, "https://raw.githubusercontent.com/KINGHUB01/BlackKing-obf/main/Doors%20Blackking%20And%20BobHub")
+createButton("Doors Floor 1 and 2 V2", 130, "https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/Loader.lua")
+createButton("Serenade HUB", 190, "https://raw.githubusercontent.com/4xdhondiscord/SerenadeHub/main/Serenade")
+createButton("BladeBall Auto PARRY GUI", 250, "https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/autoparry.lua")
+createButton("INF YIELD V6", 310, "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
+createButton("DARK DEX V3", 370, "https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua")
+createButton("Blox Fruits Min Hub V2", 430, "https://raw.githubusercontent.com/Basicallyy/Basicallyy/main/MinGamingV4.lua")
+createButton("PET SIM 99 Nut Hub V2", 490, "https://raw.githubusercontent.com/Qrto1/working/main/pc")
+createButton("RIVALS AIMBOT", 550, "https://scriptblox.com/raw/UPD-RIVALS-FREE-GUI-16266")
+createButton("Pressure", 610, "https://raw.githubusercontent.com/NobloxOfficial/PRESSURE-Roblox/refs/heads/main/Pressure%20script%20for%20Z%20I%20N%20D%20E%20X")
+
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 900)
+ 
+local TweenService = game:GetService("TweenService")
+
+-- Function to animate the frame
+local function animateFrameVisibility(show)
+    local tweenInfo = TweenInfo.new(
+        0.5,  -- Time (in seconds) for the tween
+        Enum.EasingStyle.Quad,  -- Easing style for the animation
+        Enum.EasingDirection.InOut,  -- Easing direction for the animation
+        0,  -- Times to repeat (0 = no repeat)
+        false,  -- Reverse animation (true = reverse)
+        0  -- Delay time before the animation starts
+    )
+
+    local goalPosition = show and UDim2.new(0.5, -350, 0.5, -250) or UDim2.new(0.5, -350, 0.5, 500)
+    local goalSize = show and UDim2.new(0, 700, 0, 500) or UDim2.new(0, 700, 0, 0)
+
+    local tween = TweenService:Create(frame, tweenInfo, {Position = goalPosition, Size = goalSize})
+    tween:Play()
+    tween.Completed:Connect(function()
+        if not show then
+            frame.Visible = false
+        end
+    end)
+end
+
+-- Function to toggle visibility
+local function toggleVisibility()
+    if frame.Visible then
+        animateFrameVisibility(false)
+    else
+        frame.Visible = true
+        animateFrameVisibility(true)
+    end
+end
+
+
+-- Create TextButton (Toggle Button)
+local toggleButton = Instance.new("TextButton")
+toggleButton.Size = UDim2.new(0, 100, 0, 100)  -- Increased size for the button
+toggleButton.Position = UDim2.new(0.5, -50, 0, 10)  -- Adjusted position to center it
+toggleButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  -- Black background
+toggleButton.BackgroundTransparency = 0.5
+toggleButton.Text = "Z"
+toggleButton.TextColor3 = Color3.fromRGB(0, 255, 0) -- Green text
+toggleButton.Font = Enum.Font.Gotham  -- Changed from GothamBold to Gotham
+toggleButton.TextSize = 36  -- Adjusted text size for the larger button
+toggleButton.TextStrokeTransparency = 1  -- Makes the text stroke invisible
+toggleButton.Parent = screenGui
+
+-- Add UICorner to TextButton for circular shape
+local toggleButtonCorner = Instance.new("UICorner")
+toggleButtonCorner.CornerRadius = UDim.new(0, 50)  -- Circular shape with a radius half the button's size
+toggleButtonCorner.Parent = toggleButton
+
+-- Add UIStroke to create a green outline around the circle
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Color = Color3.fromRGB(0, 255, 0)  -- Green color
+uiStroke.Thickness = 4  -- Adjust the thickness of the outline as needed
+uiStroke.Parent = toggleButton
+
+-- Optionally, you can add a UIAspectRatioConstraint to keep the button's aspect ratio
+local aspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+aspectRatioConstraint.Parent = toggleButton
+
+-- Connect toggle button click to toggle visibility function
+toggleButton.MouseButton1Click:Connect(toggleVisibility)
+
+-- Draggable functionality for the toggle button
+local dragging = false
+local dragStart = Vector2.new()
+local startPos = UDim2.new()
+
+toggleButton.MouseButton1Down:Connect(function(input)
+    dragging = true
+    dragStart = input.Position
+    startPos = toggleButton.Position
+    input.Changed:Connect(function()
+        if input.UserInputState == Enum.UserInputState.End then
+            dragging = false
+        end
+    end)
+end)
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+    if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+        local delta = input.Position - dragStart
+        toggleButton.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+end)
+
+
+
+
+
+print("welcome   to   Z I N D E X   v2")
+print("subtoRE")
+print("STATUS:🟢")
+print("RE HUB V1/https://discord.gg/j4XD4H7GNX")
+print("YOUTUBE CHANNEL: https://youtube.com/@RobloxExecuted")
+
+frame.Visible = false
