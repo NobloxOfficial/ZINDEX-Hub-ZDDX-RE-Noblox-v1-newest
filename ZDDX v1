@@ -4,7 +4,7 @@ local function createNotifier()
     local screenGui = Instance.new("ScreenGui")
     screenGui.Name = "Notifier"
     screenGui.Parent = game.CoreGui
- 
+
     -- Create Frame
     local frame = Instance.new("Frame")
     frame.Size = UDim2.new(0, 250, 0, 75)  -- Smaller size for the frame
@@ -13,12 +13,12 @@ local function createNotifier()
     frame.BorderSizePixel = 2
     frame.BorderColor3 = Color3.fromRGB(0, 0, 0) -- Black border
     frame.Parent = screenGui
- 
+
     -- Add UICorner to Frame
     local frameCorner = Instance.new("UICorner")
     frameCorner.CornerRadius = UDim.new(0, 5)
     frameCorner.Parent = frame
- 
+
     -- Add UIGradient to Frame
     local frameGradient = Instance.new("UIGradient")
     frameGradient.Color = ColorSequence.new{
@@ -26,7 +26,7 @@ local function createNotifier()
         ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))  -- Black
     }
     frameGradient.Parent = frame
- 
+
     -- Create Label
     local label = Instance.new("TextLabel")
     label.Size = UDim2.new(1, -40, 0, 50)
@@ -38,23 +38,23 @@ local function createNotifier()
     label.TextSize = 18
     label.TextWrapped = true
     label.Parent = frame
- 
+
     -- Automatically close after 5 seconds
     delay(5, function()
         screenGui:Destroy()
     end)
 end
- 
+
 -- Call the function to create the notifier
 createNotifier()
- 
+
 print("RE Script Hub Loaded Successfully")
- 
+
 -- Create ScreenGui for REHub
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "REHub"
 screenGui.Parent = game.CoreGui
- 
+
 -- Create Frame for REHub
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 700, 0, 500)  -- Increased width from 600 to 700
@@ -65,12 +65,12 @@ frame.BorderColor3 = Color3.fromRGB(0, 0, 0) -- Black border
 frame.Active = true
 frame.Draggable = true
 frame.Parent = screenGui
- 
+
 -- Add UICorner to Frame
 local frameCorner = Instance.new("UICorner")
 frameCorner.CornerRadius = UDim.new(0, 15)
 frameCorner.Parent = frame
- 
+
 -- Add UIGradient to Frame
 local frameGradient = Instance.new("UIGradient")
 frameGradient.Color = ColorSequence.new{
@@ -78,7 +78,7 @@ frameGradient.Color = ColorSequence.new{
     ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))  -- Black
 }
 frameGradient.Parent = frame
- 
+
 -- Create Scrolling Frame
 local scrollingFrame = Instance.new("ScrollingFrame")
 scrollingFrame.Size = UDim2.new(1, 0, 1, -60)
@@ -89,12 +89,12 @@ scrollingFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Black background
 scrollingFrame.BorderSizePixel = 2
 scrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0) -- Black border
 scrollingFrame.Parent = frame
- 
+
 -- Add UICorner to Scrolling Frame
 local scrollingFrameCorner = Instance.new("UICorner")
 scrollingFrameCorner.CornerRadius = UDim.new(0, 10)
 scrollingFrameCorner.Parent = scrollingFrame
- 
+
 -- Create Label
 local label = Instance.new("TextLabel")
 label.Size = UDim2.new(1, 0, 0, 60)
@@ -107,12 +107,12 @@ label.TextColor3 = Color3.fromRGB(0, 255, 0) -- Green text
 label.Font = Enum.Font.GothamBold
 label.TextSize = 28
 label.Parent = frame
- 
+
 -- Add UICorner to Label
 local labelCorner = Instance.new("UICorner")
 labelCorner.CornerRadius = UDim.new(0, 10)
 labelCorner.Parent = label
- 
+
 -- Function to create buttons
 local function createButton(name, position, script)
     local button = Instance.new("TextButton")
@@ -129,13 +129,13 @@ local function createButton(name, position, script)
         loadstring(game:HttpGet(script))()
     end)
     button.Parent = scrollingFrame
- 
+
     -- Add UICorner to Button
     local buttonCorner = Instance.new("UICorner")
     buttonCorner.CornerRadius = UDim.new(0, 10)
     buttonCorner.Parent = button
 end
- 
+
 -- Create Buttons
 createButton("Arsenal", 10, "https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal")
 createButton("Doors Floor 1 and 2 V1", 70, "https://raw.githubusercontent.com/KINGHUB01/BlackKing-obf/main/Doors%20Blackking%20And%20BobHub")
@@ -148,9 +148,10 @@ createButton("Blox Fruits Min Hub V2", 430, "https://raw.githubusercontent.com/B
 createButton("PET SIM 99 Nut Hub V2", 490, "https://raw.githubusercontent.com/Qrto1/working/main/pc")
 createButton("RIVALS AIMBOT", 550, "https://scriptblox.com/raw/UPD-RIVALS-FREE-GUI-16266")
 createButton("Pressure", 610, "https://raw.githubusercontent.com/NobloxOfficial/PRESSURE-Roblox/refs/heads/main/Pressure%20script%20for%20Z%20I%20N%20D%20E%20X")
+createButton("Jailbreak ProjectAuto V5", 670, "http://scripts.projectauto.xyz/AutoRobV5")
 
-scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 900)
- 
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 900)  -- Adjusted to accommodate the new button
+
 local TweenService = game:GetService("TweenService")
 
 -- Function to animate the frame
@@ -185,7 +186,6 @@ local function toggleVisibility()
         animateFrameVisibility(true)
     end
 end
-
 
 -- Create TextButton (Toggle Button)
 local toggleButton = Instance.new("TextButton")
@@ -241,14 +241,15 @@ game:GetService("UserInputService").InputChanged:Connect(function(input)
     end
 end)
 
-
-
-
-
-print("welcome   to   Z I N D E X   v2")
+print("welcome   to   Z I N D E X   v1.2")
 print("subtoRE")
 print("STATUS:🟢")
 print("RE HUB V1/https://discord.gg/j4XD4H7GNX")
 print("YOUTUBE CHANNEL: https://youtube.com/@RobloxExecuted")
 
+print("NEW FEATURES:
+
+Jailbreak AutoRob added projectauto")
+
 frame.Visible = false
+
